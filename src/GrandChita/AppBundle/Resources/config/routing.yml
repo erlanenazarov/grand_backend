@@ -1,0 +1,71 @@
+index:
+    path:     /
+    defaults: { _controller: GrandChitaAppBundle:Index:index }
+
+base_course:
+    path:     /base-course
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:baseCourse }
+
+oprator:
+    path:     /operator-1c-market-control
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:oprator }
+
+accountant:
+    path:     /accountant
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:accountant }
+
+inspector:
+    path:     /stuff-inspector
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:inspector }
+
+grand_smeta:
+    path:     /grand-smeta
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:grandSmeta }
+
+admin:
+    path:     /administration-and-programming-1c
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:admin }
+
+design:
+    path:     /design
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:design }
+
+computer_courses:
+    path:     /computer-courses-for-old-people
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:computerCourses }
+
+computer_repair:
+    path:     /computer-repair-courses
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:computerRepair }
+
+pevm:
+    path:     /pevm-users
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:pevm }
+
+contacts:
+    path:     /contacts
+    defaults: { _controller: GrandChitaAppBundle:Contacts:contacts }
+
+schedule:
+    path:     /schedule
+    defaults: { _controller: GrandChitaAppBundle:Schedule:schedule }
+
+sruff:
+    path:     /sruff
+    defaults: { _controller: GrandChitaAppBundle:Documents:sruff }
+
+staff:
+    path:     /staff
+    defaults: { _controller: GrandChitaAppBundle:Documents:staff }
+
+certificates:
+    path:     /diplomas-and-certificates
+    defaults: { _controller: GrandChitaAppBundle:Documents:certificates }
+
+grand_documents:
+    path:     /grand-documents
+    defaults: { _controller: GrandChitaAppBundle:Documents:grandDocuments }
+
+education_programm:
+    path:     /educational-programs
+    defaults: { _controller: GrandChitaAppBundle:Documents:educationProgramm }

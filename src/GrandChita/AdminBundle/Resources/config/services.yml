@@ -1,0 +1,15 @@
+services:
+#    grand_chita_admin.example:
+#        class: GrandChita\AdminBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+    admin.schedule:
+        class: GrandChita\AdminBundle\Admin\ScheduleAdmin
+        arguments: [~, GrandChita\EntityBundle\Entity\Schedule, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Расписание, label: Schedule}
+
+    admin.staff:
+        class: GrandChita\AdminBundle\Admin\StaffAdmin
+        arguments: [~, GrandChita\EntityBundle\Entity\Staff, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Персонал, label: Staff}

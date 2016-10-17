@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{% endblock %} - Grand Chita</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/grandchitaapp/css/style.css') }}" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <!-- ==================================== Header ====================================== -->
+        <header>
+            <div class="logo"></div>
+            <div class="contacts">
+                <ul>
+                    <li>
+                        <img src="{{ asset('bundles/grandchitaapp/images/logo/phone-call.svg') }}" />
+                        <div>+7(3022)35-72-15</div>
+                    </li>
+                    <li>
+                        <img src="{{ asset('bundles/grandchitaapp/images/logo/phone-call.svg') }}" />
+                        <div>35-81-87</div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <!-- ==================================== End Header ================================== -->
+
+        <!-- ==================================== Navigation Bar ============================== -->
+        <div class="nav-bar-placeholder"></div>
+        <div class="navigation-bar" id="fixed-bar">
+            <div class="nav-bar-carcass">
+                <ul class="nav-menu">
+                    <li {% if location == 'index' %}class="active"{% endif %}><a href="{{ path('index') }}">Главная</a></li>
+                    <li {% if location == 'education' %}class="active"{% endif %}>
+                        <a href="">Образовательные программы</a>
+                        <ul class="sub-menu">
+                            <li><a href="{{ path('base_course') }}">Базовый курс поставщика</a></li>
+                            <li><a href="{{ path('oprator') }}">Оператор "1C: Управление торговлей"</a></li>
+                            <li><a href="{{ path('accountant') }}">Бухгалтер со знанием программы "1C: Бухгалтерия"</a></li>
+                            <li><a href="{{ path('inspector') }}">Инспектор отдела кадров со знанием "1С: Зарплата и управление персоналом"</a></li>
+                            <li><a href="{{ path('grand_smeta') }}">Сметное дело в строительстве + ПК ГрандСмета</a></li>
+                            <li><a href="{{ path('admin') }}">Администрирование и программирование в 1C</a></li>
+                            <li><a href="{{ path('design') }}">Графика, Дизайн, Вёрстка</a></li>
+                            <li><a href="{{ path('computer_courses') }}">Компьютерные курсы для пожилых людей</a></li>
+                            <li><a href="{{ path('computer_repair') }}">Ремонт компьютерной техники администрирование сетей</a></li>
+                            <li><a href="{{ path('pevm') }}">Пользователь ПЭВМ</a></li>
+                        </ul>
+                    </li>
+                    <li {% if location == 'schedule' %}class="active"{% endif %}><a href="{{ path('schedule') }}">Расписание занятий</a></li>
+                    <li {% if location == 'contacts' %}class="active"{% endif %}><a href="{{ path('contacts') }}">Контакты</a></li>
+                    <li {% if location == 'documents' %}class="active"{% endif %}>
+                        <a href="#">Документы</a>
+                        <ul class="sub-menu">
+                            <li><a href="{{ path('staff') }}">Преподовательский состав</a></li>
+                            <li><a href="{{ path('certificates') }}">Дипломы и сертификаты</a></li>
+                            <li><a href="{{ path('grand_documents') }}">Документы ЧОУ УМЦ ДПО "Гранд"</a></li>
+                            <li><a href="{{ path('education_programm') }}">Образовательные программы</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- ==================================== End Navigation Bar ========================== -->
+        <!-- ==================================== Body ========================================== -->
+        <main>
+            <div class="page-title">
+                {% block page_title %}
+                <div class="delimiter-left"></div>
+                Главная
+                <div class="delimiter-right"></div>
+                {% endblock %}
+            </div>
+
+            <div class="content parent">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </main>
+        <!-- ==================================== End Body ====================================== -->
+
+
+        {% block footer %}
+            <!-- ==================================== Footer ======================================== -->
+            <footer>
+                <div class="footer-carcass">
+                    <div class="footer">ЧОУ УМЦ ДПО "Гранд"</div>
+                    <div class="footer-grid">
+                        <ul>
+                            <li>
+                                <div class="image"><img src="{{ asset('bundles/grandchitaapp/images/logo/email.svg') }}"/></div>
+                                <div class="content">chitagrand@mail.ru</div>
+                            </li>
+                            <li>
+                                <div class="image"><img src="{{ asset('bundles/grandchitaapp/images/logo/footer-phone.svg') }}"/></div>
+                                <div class="content">+7 (3022) 35-81-87</div>
+                            </li>
+                            <li>
+                                <div class="image"><img src="{{ asset('bundles/grandchitaapp/images/logo/printer-.svg') }}" /></div>
+                                <div class="content">+7 (3022) 35-72-15</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="copy-right">&copy; 2016 Все права защищены</div>
+                </div>
+            </footer>
+            <!-- ==================================== End Footer ==================================== -->
+        {% endblock %}
+
+
+        {% block javascripts %}
+            <script src="{{ asset('bundles/grandchitaapp/js/jquery-3.1.0.min.js') }}"></script>
+            <script>
+                var FixedBar = $('#fixed-bar');
+
+                $(document).ready(function() {
+                    $(window).scroll(function() {
+                        if($(window).scrollTop() >= 150) {
+                            $(FixedBar).addClass('sticky');
+                        } else {
+                            $(FixedBar).removeClass('sticky');
+                        }
+                    });
+                });
+            </script>
+        {% endblock %}
+    </body>
+</html>

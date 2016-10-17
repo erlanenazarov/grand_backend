@@ -1,0 +1,34 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Расписание занятий{% endblock %}
+
+{% block page_title %}
+    Расписание занятий
+{% endblock %}
+
+{% block content %}
+    <table class="features-table">
+        <thead>
+        <tr>
+            <td>Курс</td>
+            <td>Дата начала</td>
+            <td>Время проведения</td>
+            <td>Продол-ть</td>
+            <td>Цена</td>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {% for item in list %}
+        <tr>
+            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.title }}</td>
+            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.date }}</td>
+            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.time }}</td>
+            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.duration }}</td>
+            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.price }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
