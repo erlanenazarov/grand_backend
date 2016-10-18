@@ -7,8 +7,12 @@ class DocumentsController extends AbstractController
 {
     public function staffAction()
     {
+        $em = $this->getDoctrine()->getManager()->getRepository('GrandChitaEntityBundle:Staff');
+        $peoples = $em->findAll();
+
         return $this->render('GrandChitaAppBundle:Documents:staff.html.twig', array(
-            'location' => 'documents'
+            'location' => 'documents',
+            'staff' => $peoples
         ));
     }
 

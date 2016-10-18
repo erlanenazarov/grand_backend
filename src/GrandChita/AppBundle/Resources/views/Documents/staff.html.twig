@@ -9,62 +9,16 @@
 {% block content %}
     <div class="content-carcass">
         <div class="staff-grid">
+            {% for item in staff %}
             <div class="staff-item">
                 <div class="staff-preview">
-                    <img src="{{ asset('bundles/grandchitaapp/images/1C.jpg') }}" />
+                    <img src="{% path item.preview, 'small' %}" />
                 </div>
                 <div class="staff-name">
-                    <a href="">Bla bla bla</a>
+                    <a href="">{{ item.name }}</a>
                 </div>
             </div>
-            <div class="staff-item">
-                <div class="staff-preview">
-                    <img src="{{ asset('bundles/grandchitaapp/images/1C.jpg') }}" />
-                </div>
-                <div class="staff-name">
-                    <a href="">Bla bla bla</a>
-                </div>
-            </div>
-            <div class="staff-item">
-                <div class="staff-preview">
-                    <img src="{{ asset('bundles/grandchitaapp/images/1C.jpg') }}" />
-                </div>
-                <div class="staff-name">
-                    <a href="">Bla bla bla</a>
-                </div>
-            </div>
-            <div class="staff-item">
-                <div class="staff-preview">
-                    <img src="{{ asset('bundles/grandchitaapp/images/1C.jpg') }}" />
-                </div>
-                <div class="staff-name">
-                    <a href="">Bla bla bla</a>
-                </div>
-            </div>
-            <div class="staff-item">
-                <div class="staff-preview">
-                    <img src="{{ asset('bundles/grandchitaapp/images/1C.jpg') }}" />
-                </div>
-                <div class="staff-name">
-                    <a href="">Bla bla bla</a>
-                </div>
-            </div>
-            <div class="staff-item">
-                <div class="staff-preview">
-                    <img src="{{ asset('bundles/grandchitaapp/images/1C.jpg') }}" />
-                </div>
-                <div class="staff-name">
-                    <a href="">Bla bla bla</a>
-                </div>
-            </div>
-            <div class="staff-item">
-                <div class="staff-preview">
-                    <img src="{{ asset('bundles/grandchitaapp/images/1C.jpg') }}" />
-                </div>
-                <div class="staff-name">
-                    <a href="">Bla bla bla</a>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
