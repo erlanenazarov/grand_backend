@@ -6,10 +6,28 @@ services:
         class: GrandChita\AdminBundle\Admin\ScheduleAdmin
         arguments: [~, GrandChita\EntityBundle\Entity\Schedule, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Расписание, label: Schedule}
+            - {name: sonata.admin, manager_type: orm, group: Гранд, label: Расиписание занятий}
 
     admin.staff:
         class: GrandChita\AdminBundle\Admin\StaffAdmin
         arguments: [~, GrandChita\EntityBundle\Entity\Staff, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: Персонал, label: Staff}
+            - {name: sonata.admin, manager_type: orm, group: Гранд, label: Персонал}
+
+    admin.certificates:
+        class: GrandChita\AdminBundle\Admin\CertificatesAdmin
+        arguments: [~, GrandChita\EntityBundle\Entity\Certificates, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Гранд, label: Сертификаты и дипломы}
+
+    admin.education:
+        class: GrandChita\AdminBundle\Admin\EducationProgramAdmin
+        arguments: [~, GrandChita\EntityBundle\Entity\EducationProgram, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Гранд, label: Образовательные программы}
+
+    admin.grand_documents:
+        class: GrandChita\AdminBundle\Admin\GrandDocumentsAdmin
+        arguments: [~, GrandChita\EntityBundle\Entity\GrandDocuments, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Гранд, label: Документы "ГРАНД"}

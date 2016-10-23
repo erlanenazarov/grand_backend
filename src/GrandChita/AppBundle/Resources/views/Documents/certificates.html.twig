@@ -1,7 +1,26 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}GrandChitaAppBundle:Documents:certificates{% endblock %}
+{% block title %}Дипломы и сертификаты{% endblock %}
 
-{% block body %}
-<h1>Welcome to the Documents:certificates page</h1>
+{% block page_title %}
+    Дипломы и сертификаты
+{% endblock %}
+
+{% block content %}
+    <div class="content-carcass">
+        <div class="staff-grid">
+            {% for certificate in certificates %}
+                <div class="staff-item">
+                    <div class="staff-preview">
+                        <img src="{% path certificate.preview, 'small' %}" />
+                    </div>
+                    {% if certificate.title %}
+                        <div class="staff-name">
+                            {{ certificate.title }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

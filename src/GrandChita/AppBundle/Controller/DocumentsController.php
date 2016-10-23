@@ -18,8 +18,12 @@ class DocumentsController extends AbstractController
 
     public function certificatesAction()
     {
+        $em = $this->getDoctrine()->getManager()->getRepository('GrandChitaEntityBundle:Certificates');
+        $certificates = $em->findAll();
+
         return $this->render('GrandChitaAppBundle:Documents:certificates.html.twig', array(
-            'location' => 'documents'
+            'location' => 'documents',
+            'certificates' => $certificates
         ));
     }
 
