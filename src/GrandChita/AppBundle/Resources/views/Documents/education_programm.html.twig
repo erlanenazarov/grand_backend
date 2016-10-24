@@ -12,7 +12,7 @@
             {% for gallery in programs %}
                 <div class="gallery-content">
                     <div class="preview">
-                        <a href="{{ path('education_program_by_id', {id: gallery.id}) }}"><img src="{% path gallery.gallery[0], 'small' %}" /></a>
+                        <a href="{{ path('education_program_by_id', {id: gallery.id}) }}"><img src="{% path gallery.gallery[0].media, 'small' %}" /></a>
                     </div>
                     <div class="title">
                         <a href="{{ path('education_program_by_id', {id: gallery.id}) }}">{{ gallery.title }}</a>

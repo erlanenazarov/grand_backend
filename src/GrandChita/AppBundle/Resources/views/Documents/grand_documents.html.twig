@@ -12,7 +12,7 @@
             {% for gallery in documents %}
                 <div class="gallery-content">
                     <div class="preview">
-                        <a href="{{ path('grand_document', {id: gallery.id}) }}"><img src="{% path gallery.gallery[0], 'small' %}" /></a>
+                        <a href="{{ path('grand_document', {id: gallery.id}) }}"><img src="{% path gallery.gallery[0].media, 'small' %}" /></a>
                     </div>
                     <div class="title">
                         <a href="{{ path('grand_document', {id: gallery.id}) }}">{{ gallery.title }}</a>
