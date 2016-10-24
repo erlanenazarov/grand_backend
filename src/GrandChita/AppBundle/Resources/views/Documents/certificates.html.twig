@@ -12,7 +12,7 @@
             {% for certificate in certificates %}
                 <div class="staff-item">
                     <div class="staff-preview">
-                        <img src="{% path certificate.preview, 'small' %}" />
+                        <img src="{% path certificate.preview, 'small' %}" data-action="modal" data-full="{% path certificate.preview, 'reference' %}" />
                     </div>
                     {% if certificate.title %}
                         <div class="staff-name">
