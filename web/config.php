@@ -213,3 +213,4 @@ $hasMinorProblems = (bool) count($minorProblems);
         </div>
     </body>
 </html>
+
