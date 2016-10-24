@@ -50,10 +50,6 @@ schedule:
     path:     /schedule
     defaults: { _controller: GrandChitaAppBundle:Schedule:schedule }
 
-sruff:
-    path:     /sruff
-    defaults: { _controller: GrandChitaAppBundle:Documents:sruff }
-
 staff:
     path:     /staff
     defaults: { _controller: GrandChitaAppBundle:Documents:staff }
@@ -66,6 +62,14 @@ grand_documents:
     path:     /grand-documents
     defaults: { _controller: GrandChitaAppBundle:Documents:grandDocuments }
 
+grand_document:
+    path:     /document/{id}
+    defaults: { _controller: GrandChitaAppBundle:Documents:documentGallery }
+
 education_programm:
     path:     /educational-programs
     defaults: { _controller: GrandChitaAppBundle:Documents:educationProgramm }
+
+education_program_by_id:
+    path: /educational-program/{id}
+    defaults: { _controller: GrandChitaAppBundle:Documents:education }

@@ -21,13 +21,15 @@
         <tbody>
 
         {% for item in list %}
-        <tr>
-            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.title }}</td>
-            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.date }}</td>
-            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.time }}</td>
-            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.duration }}</td>
-            <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.price }}</td>
-        </tr>
+            {% if item.enabled %}
+                <tr>
+                    <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.title }}</td>
+                    <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.date }}</td>
+                    <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.time }}</td>
+                    <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.duration }}</td>
+                    <td class="{% if loop.index % 2 == 0 %}gray{% else %}green{% endif %}">{{ item.price }}</td>
+                </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>

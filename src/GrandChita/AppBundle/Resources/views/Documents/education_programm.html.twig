@@ -1,7 +1,25 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}GrandChitaAppBundle:Documents:educationProgramm{% endblock %}
+{% block title %}Образовательные программы{% endblock %}
 
-{% block body %}
-<h1>Welcome to the Documents:educationProgramm page</h1>
+{% block page_title %}
+    Образовательные программы
+{% endblock %}
+
+{% block content %}
+    <div class="content-carcass">
+        <div class="gallery-grid-view">
+            {% for gallery in programs %}
+                <div class="gallery-content">
+                    <div class="preview">
+                        <a href="{{ path('education_program_by_id', {id: gallery.id}) }}"><img src="{% path gallery.gallery[0], 'small' %}" /></a>
+                    </div>
+                    <div class="title">
+                        <a href="{{ path('education_program_by_id', {id: gallery.id}) }}">{{ gallery.title }}</a>
+                    </div>
+                    <div class="date"><img src="{{ asset('bundles/grandchitaapp/images/date-icon.png') }}"/> <span>{{ gallery.timestamp|date('Y-m-d') }}</span></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

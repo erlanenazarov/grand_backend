@@ -112,4 +112,43 @@ class EducationProgram
     {
         $this->gallery->removeElement($gallery);
     }
+    /**
+     * @var \DateTime
+     */
+    private $timestamp;
+
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     *
+     * @return EducationProgram
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    public function prePersist()
+    {
+        $this->setTimestamp(new \DateTime());
+    }
+
+    public function preUpdate()
+    {
+        $this->prePersist();
+    }
 }

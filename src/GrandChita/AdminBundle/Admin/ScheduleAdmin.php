@@ -36,6 +36,7 @@ class ScheduleAdmin extends Admin
             ->add('time')
             ->add('duration')
             ->add('price')
+            ->add('enabled')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -57,6 +58,7 @@ class ScheduleAdmin extends Admin
             ->add('time')
             ->add('duration')
             ->add('price')
+            ->add('enabled')
         ;
     }
 

@@ -9,6 +9,13 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        <div class="grand-modal" id="modal">
+            <div class="grand-modal-content">
+                <div class="grand-modal-body">
+                    <img src="" id="modal-full-image" />
+                </div>
+            </div>
+        </div>
         <!-- ==================================== Header ====================================== -->
         <header>
             <div class="logo">
@@ -53,7 +60,7 @@
                     <li {% if location == 'schedule' %}class="active"{% endif %}><a href="{{ path('schedule') }}">Расписание занятий</a></li>
                     <li {% if location == 'contacts' %}class="active"{% endif %}><a href="{{ path('contacts') }}">Контакты</a></li>
                     <li {% if location == 'documents' %}class="active"{% endif %}>
-                        <a href="#">Документы</a>
+                        <a href="">Документы</a>
                         <ul class="sub-menu">
                             <li><a href="{{ path('staff') }}">Преподовательский состав</a></li>
                             <li><a href="{{ path('certificates') }}">Дипломы и сертификаты</a></li>
@@ -115,6 +122,8 @@
             <script src="{{ asset('bundles/grandchitaapp/js/jquery-3.1.0.min.js') }}"></script>
             <script>
                 var FixedBar = $('#fixed-bar');
+                var isModalOpened = false;
+                var modal = $('#modal');
 
                 $(document).ready(function() {
                     $(window).scroll(function() {
@@ -124,6 +133,23 @@
                             $(FixedBar).removeClass('sticky');
                         }
                     });
+
+                    $('[data-action="modal"]').on('click', function() {
+                        if(!$(modal).hasClass('modal-active')) {
+                            $(modal).addClass('modal-active');
+                            isModalOpened = true;
+                        }
+
+                        $('#modal-full-image').attr('src', $(this).attr('data-full'));
+                    });
+                });
+
+                $(document).on('click', function(event) {
+                   if(isModalOpened) {
+                       if($(event.target).hasClass('grand-modal')) {
+                            $(modal).removeClass('modal-active');
+                       }
+                   }
                 });
             </script>
         {% endblock %}

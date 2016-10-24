@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ document.title }}{% endblock %}
+
+{% block page_title %}
+    {{ document.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="content-carcass">
+        <div class="gallery-grid-view">
+            {% for ghm in document.gallery %}
+                <div class="one-media">
+                    <img src="{% path ghm.media, 'small' %}" alt="image" data-full="{% path ghm.media, 'reference' %}" data-action="modal" />
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -6,6 +6,20 @@
     Документы ЧОУ УМЦ ДПО "Гранд"
 {% endblock %}
 
-{% block contect %}
-
+{% block content %}
+    <div class="content-carcass">
+        <div class="gallery-grid-view">
+            {% for gallery in documents %}
+                <div class="gallery-content">
+                    <div class="preview">
+                        <a href="{{ path('grand_document', {id: gallery.id}) }}"><img src="{% path gallery.gallery[0], 'small' %}" /></a>
+                    </div>
+                    <div class="title">
+                        <a href="{{ path('grand_document', {id: gallery.id}) }}">{{ gallery.title }}</a>
+                    </div>
+                    <div class="date"><img src="{{ asset('bundles/grandchitaapp/images/date-icon.png') }}"/> <span>{{ gallery.timestamp|date('Y-m-d') }}</span></div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

@@ -97,4 +97,43 @@ class GrandDocuments
     {
         return $this->gallery;
     }
+    /**
+     * @var \DateTime
+     */
+    private $timestamp;
+
+
+    /**
+     * Set timestamp
+     *
+     * @param \DateTime $timestamp
+     *
+     * @return GrandDocuments
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->timestamp = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    public function prePersist()
+    {
+        $this->setTimestamp(new \DateTime());
+    }
+
+    public function preUpdate()
+    {
+        $this->prePersist();
+    }
 }

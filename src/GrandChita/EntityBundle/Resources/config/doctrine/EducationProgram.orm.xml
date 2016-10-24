@@ -16,6 +16,16 @@
                   <join-column name="education_group_id" referenced-column-name="id" />
               </inverse-join-columns>
           </join-table>
+          <cascade>
+              <cascade-persist/>
+          </cascade>
       </many-to-many>
+
+      <field name="timestamp" type="date" column="date" />
+
+      <lifecycle-callbacks>
+          <lifecycle-callback type="prePersist" method="prePersist"/>
+          <lifecycle-callback type="preUpdate" method="preUpdate" />
+      </lifecycle-callbacks>
   </entity>
 </doctrine-mapping>
