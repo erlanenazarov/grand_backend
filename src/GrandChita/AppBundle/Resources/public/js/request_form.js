@@ -23,11 +23,14 @@ $(document).ready(function() {
             url: $(form).attr('action'),
             success: function(response) {
                 if(response.result == 'ok') {
-                    $(loadingEffect).fadeOut('fast');
-                    $(b).animate({
-                        opacity: 1
+                    $(loadingEffect).animate({
+                        display: 'none'
                     }, 500, function() {
-                        alert('Писмо успешно отправлено! Приятного вам дня!');
+                        $(b).animate({
+                            opacity: 1
+                        }, 500, function() {
+                            alert('Писмо успешно отправлено! Приятного вам дня!');
+                        });
                     });
                 } else {
                     $(loadingEffect).fadeOut('fast');
