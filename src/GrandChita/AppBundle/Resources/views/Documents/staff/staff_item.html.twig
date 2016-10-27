@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ person.name }}{% endblock %}
+
+{% block page_title %}
+    {{ person.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="content-carcass">
+        <img src="{% path person.preview, 'reference' %}" alt="{{ person.name }}" class="staff-item-view" />
+        <p>{{ person.description }}</p>
+    </div>
+{% endblock %}

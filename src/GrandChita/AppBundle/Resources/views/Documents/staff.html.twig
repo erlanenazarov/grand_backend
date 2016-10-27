@@ -12,10 +12,10 @@
             {% for item in staff %}
             <div class="staff-item">
                 <div class="staff-preview">
-                    <img src="{% path item.preview, 'small' %}" />
+                    <a href="{{ path('staff_item', {id: item.id}) }}"><img src="{% path item.preview, 'small' %}" /></a>
                 </div>
                 <div class="staff-name">
-                    <a href="">{{ item.name }}</a>
+                    <a href="{{ path('staff_item', {id: item.id}) }}">{{ item.name }}</a>
                 </div>
             </div>
             {% endfor %}

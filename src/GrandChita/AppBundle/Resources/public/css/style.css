@@ -403,7 +403,8 @@ h2 {
 }
 
 .some-list-2 {
-    padding-left: 280px;
+    padding-left: 86px;
+    width: 651px;
 }
 
 .some-list-2 li {
@@ -426,8 +427,9 @@ ul li {
 }
 
 .right-side {
-    float: right;
+    float: left;
     position: relative;
+    width: 900px;
 }
 
 .p {
@@ -484,7 +486,8 @@ input[type="email"] {
     padding-left: 20px;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
     outline: none;
 }
 
@@ -757,4 +760,23 @@ input[type="submit"]:hover {
 
 .modal-active {
     display: block;
+}
+
+.staff-item-view {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.contacts-left-side {
+    float: left;
+    position: relative;
+}
+
+.contacts-right-side {
+    float: right;
+    position: relative;
+}
+
+#loading-effect {
+    display: none;
 }

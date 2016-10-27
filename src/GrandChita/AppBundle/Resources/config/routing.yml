@@ -73,3 +73,12 @@ education_programm:
 education_program_by_id:
     path: /educational-program/{id}
     defaults: { _controller: GrandChitaAppBundle:Documents:education }
+
+staff_item:
+    path: /staff/{id}
+    defaults: { _controller: GrandChitaAppBundle:Documents:onePerson }
+
+send_message:
+    path: /ajax/message/send
+    defaults: { _controller: GrandChitaAppBundle:Contacts:sendMail }
+    methods: POST
