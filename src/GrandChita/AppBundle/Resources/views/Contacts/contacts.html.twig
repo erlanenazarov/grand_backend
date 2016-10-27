@@ -11,7 +11,7 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2454.033967268841!2d113.49151131590301!3d52.0426942792437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5dca354447b74c5d%3A0x2d6b71cdab532499!2z0YPQuy4g0JHQsNCx0YPRiNC60LjQvdCwLCAxMDQsINCn0LjRgtCwLCDQl9Cw0LHQsNC50LrQsNC70YzRgdC60LjQuSDQutGA0LDQuSwg0KDQvtGB0YHQuNGPLCA2NzIwMDA!5e0!3m2!1sru!2skg!4v1476291614142" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
     <div>
-        <div class="left-side left-grid">
+        <div class="contacts-left-side left-grid">
             <div class="contact-list-element">
                 <div class="contact-key">Адрес:</div>
                 <div class="contact-value">672007 г. Чита, ул. Бабушкина, дом 104, офис 418</div>
@@ -33,24 +33,35 @@
                 <div class="contact-value"><a href="mailto:chitagrand@mail.ru">chitagrand@mail.ru</a></div>
             </div>
         </div>
-        <div class="right-side right-grid">
-            <form action="" method="POST">
+        <div class="contacts-right-side right-grid">
+            <form action="{{ path('send_message') }}" method="POST" id="request_form">
                 <div>
-                    <input type="text" name="name" placeholder="Ваше имя" required />
+                    {#<input type="text" name="name" placeholder="Ваше имя" required />#}
+                    {{ form_widget(request_form.title) }}
                 </div>
                 <div>
-                    <input type="email" name="email" placeholder="Ваш E-Mail" required />
+                    {#<input type="email" name="email" placeholder="Ваш E-Mail" required />#}
+                    {{ form_widget(request_form.mail) }}
                 </div>
                 <div>
-                    <input type="text" name="subject" placeholder="Тема" required />
+                    {#<input type="text" name="subject" placeholder="Тема" required />#}
+                    {{ form_widget(request_form.subject) }}
                 </div>
                 <div>
-                    <textarea name="message" cols="30" rows="10">Сообщение</textarea>
+                    {#<textarea name="message" cols="30" rows="10" placeholder="Сообщение"></textarea>#}
+                    {{ form_widget(request_form.message) }}
                 </div>
+                {{ form_widget(request_form._token) }}
                 <div>
-                    <input type="submit" value="Отправить"/>
+                    <input type="submit" value="Отправить" id="submit-button"/>
+                    <img src="{{ asset('bundles/grandchitaapp/images/gear.gif') }}" id="loading-effect" />
                 </div>
             </form>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/grandchitaapp/js/request_form.js') }}"></script>
 {% endblock %}

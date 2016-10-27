@@ -16,6 +16,16 @@ class DocumentsController extends AbstractController
         ));
     }
 
+    public function onePersonAction($id) {
+        $em = $this->getDoctrine()->getManager()->getRepository('GrandChitaEntityBundle:Staff');
+        $person = $em->find($id);
+        
+        return $this->render('GrandChitaAppBundle:Documents/staff:staff_item.html.twig', array(
+            'location' => 'documents',
+            'person' => $person
+        ));
+    }
+
     public function certificatesAction()
     {
         $em = $this->getDoctrine()->getManager()->getRepository('GrandChitaEntityBundle:Certificates');
