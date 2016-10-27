@@ -51,13 +51,15 @@ class ContactsController extends AbstractController
 
             $data = $form->getData();
 
-            $message = "Имя: {$data['title']} <br />"
-                        ."Эл. почта: {$data['mail']} <br />"
-                        ."Тема сообщения: {$data['subject']} <br />"
-                        ."Сообщение: <br />"
-                        .$data['message'];
+            $message = "Имя: {$data['title']} \n"
+                        ."Эл. почта: {$data['mail']} \n"
+                        ."Тема сообщения: {$data['subject']} \n"
+                        ."Сообщение: \n"
+                        .$data['message']
+                        ." \n"
+                        ."Письмо отправлено: ".date('Y-m-d');
 
-            $result = mail('okay11007@gmail.com', $data['subject'], $message);
+            $result = mail('chitagrand@mail.ru', $data['subject'], $message);
 
             if($result) {
                 return new JsonResponse(array(
