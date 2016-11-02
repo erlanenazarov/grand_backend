@@ -1,5 +1,10 @@
 {% extends "::base.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/grandchitaapp/css/popup.css') }}" />
+{% endblock %}
+
 {% block title %}{{ document.title }}{% endblock %}
 
 {% block page_title %}
@@ -11,9 +16,23 @@
         <div class="gallery-grid-view">
             {% for ghm in document.gallery %}
                 <div class="one-media">
-                    <img src="{% path ghm.media, 'small' %}" alt="image" data-full="{% path ghm.media, 'reference' %}" data-action="modal" />
+                    <a href="{% path ghm.media, 'reference' %}" class="popup-trigger">
+                        <img src="{% path ghm.media, 'small' %}" alt="image" />
+                    </a>
                 </div>
             {% endfor %}
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/grandchitaapp/js/popup.min.js') }}" ></script>
+    <script>
+        $(document).ready(function() {
+           $('.popup-trigger').magnificPopup({
+               type: 'image'
+           });
+        });
+    </script>
 {% endblock %}
