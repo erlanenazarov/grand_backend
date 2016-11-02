@@ -1,5 +1,10 @@
 {% extends "::base.html.twig" %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/grandchitaapp/css/popup.css') }}" />
+{% endblock %}
+
 {% block title %}Дипломы и сертификаты{% endblock %}
 
 {% block page_title %}
@@ -12,7 +17,9 @@
             {% for certificate in certificates %}
                 <div class="staff-item">
                     <div class="staff-preview">
-                        <img src="{% path certificate.preview, 'small' %}" data-action="modal" data-full="{% path certificate.preview, 'reference' %}" />
+                        <a href="{% path certificate.preview, 'reference' %}" class="popup-trigger">
+                            <img src="{% path certificate.preview, 'small' %}" />
+                        </a>
                     </div>
                     {% if certificate.title %}
                         <div class="staff-name">
@@ -23,4 +30,16 @@
             {% endfor %}
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/grandchitaapp/js/popup.min.js') }}" ></script>
+    <script>
+        $(document).ready(function() {
+            $('.popup-trigger').magnificPopup({
+                type: 'image'
+            });
+        });
+    </script>
 {% endblock %}
