@@ -13,7 +13,7 @@ class ScheduleController extends AbstractController
         $finalSchedule = array();
 
         foreach($items as $item) {
-            if($item->getEnabled()) {
+            if(!$item->getEnabled()) {
                 $finalSchedule[] += $item;
             }
         }
