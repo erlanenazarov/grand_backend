@@ -38,6 +38,8 @@
                     <li {% if location == 'education' %}class="active"{% endif %}>
                         <a href="">Образовательные программы</a>
                         <ul class="sub-menu">
+                            <li><a href="{{ path('statistic') }}">Бухгалтерский учет малого предприятия (УСН, ЕНВД, Патент)</a></li>
+                            <li><a href="{{ path('profstandart') }}">Обучение по курсу "Внедрение профессиональных стандартов в организации"</a></li>
                             <li><a href="{{ path('base_course') }}">Базовый курс поставщика</a></li>
                             <li><a href="{{ path('oprator') }}">Оператор "1C: Управление торговлей"</a></li>
                             <li><a href="{{ path('accountant') }}">Бухгалтер со знанием программы "1C: Бухгалтерия"</a></li>

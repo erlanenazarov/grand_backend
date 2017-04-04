@@ -75,4 +75,17 @@ class EducationProgramController extends AbstractController
         ));
     }
 
+    public function statisticAction()
+    {
+        return $this->render('GrandChitaAppBundle:EducationProgram:statistic.html.twig', array(
+            'location' => 'education'
+        ));
+    }
+
+    public function profstandartAction()
+    {
+        return $this->render('GrandChitaAppBundle:EducationProgram:profstandart.html.twig', array(
+            'location' => 'education'
+        ));
+    }
 }

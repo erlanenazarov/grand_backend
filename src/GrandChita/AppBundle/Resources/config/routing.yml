@@ -82,3 +82,11 @@ send_message:
     path: /ajax/message/send
     defaults: { _controller: GrandChitaAppBundle:Contacts:sendMail }
     methods: POST
+
+statistic:
+    path: /statistic
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:statistic }
+
+profstandart:
+    path: /professional-standard
+    defaults: { _controller: GrandChitaAppBundle:EducationProgram:profstandart }
